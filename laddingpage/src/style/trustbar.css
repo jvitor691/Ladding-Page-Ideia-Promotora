@@ -1,28 +1,106 @@
-.trust-bar {
+/* ── TRUSTBAR ─────────────────────────────────────────────────────── */
+
+.trustbar {
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+    padding: 14px 2rem;
     position: relative;
-    background-color: var(--roxo-principal);
-    z-index: 1;
-    border-top: 1px solid var(--roxo-claro);
-    border-bottom: 1px solid var(--roxo-claro);
-    padding: 18px 36px;
     overflow: hidden;
 }
 
+/* linha gradiente no topo */
+.trustbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--roxo), var(--roxo-claro), var(--amarelo));
+}
+
+/* ── INNER ────────────────────────────────────────────────────────── */
+
 .trust-inner {
-    max-width: 1300px;
+    max-width: 1280px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 44px;
+    gap: 0;
     flex-wrap: wrap;
 }
+
+/* ── ITEM ─────────────────────────────────────────────────────────── */
 
 .trust-item {
     display: flex;
     align-items: center;
-    gap: 9px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-primario);
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--texto-medio);
+    padding: 0.35rem 1.5rem;
+    white-space: nowrap;
+}
+
+/* ── ÍCONE ────────────────────────────────────────────────────────── */
+
+.trust-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--roxo-bg);
+    border: 1px solid rgba(107, 43, 173, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.trust-icon svg {
+    width: 13px;
+    height: 13px;
+    stroke: var(--roxo-medio);
+    fill: none;
+    stroke-width: 1.9;
+    flex-shrink: 0;
+}
+
+/* ── SEPARADOR ────────────────────────────────────────────────────── */
+
+.trust-sep {
+    display: block;
+    width: 1px;
+    height: 18px;
+    background: var(--borda);
+    margin-left: 1.5rem;
+    flex-shrink: 0;
+}
+
+/* ── RESPONSIVO ───────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .trust-inner {
+        gap: 0.25rem;
+    }
+
+    .trust-item {
+        padding: 0.35rem 0.85rem;
+        font-size: 0.75rem;
+    }
+
+    .trust-sep {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .trustbar {
+        padding: 12px 1rem;
+    }
+
+    .trust-item {
+        padding: 0.3rem 0.6rem;
+    }
 }

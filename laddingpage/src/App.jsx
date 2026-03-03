@@ -4,6 +4,11 @@ import Hero from './components/Hero'
 import Trustbar from './components/Trustbar'
 import Produtos from './components/Produtos'
 import Diferencial from './components/Diferencial'
+import Parceiros from './components/Parceiros'
+import OndeEstamos from './components/OndeEstamos'
+import Institucional from './components/Institucional'
+import Cookie from './components/Cookie'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -12,11 +17,19 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <Trustbar />
-      <Produtos />
-      <Diferencial />
 
+      <main>
+        <Hero />
+        <Trustbar />
+        <Produtos />
+        <Diferencial />
+        <OndeEstamos />
+        <Institucional />
+        <Parceiros />
+      </main>
+
+      <Footer />
+      <Cookie />
     </>
   )
 }

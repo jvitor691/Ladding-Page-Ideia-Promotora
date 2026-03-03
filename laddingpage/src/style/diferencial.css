@@ -1,85 +1,281 @@
-.diferencial-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    gap: 3rem;
-    padding: 50px;
-    background-color: var(--roxo-fundo);
+/* ── SEÇÃO ────────────────────────────────────────────────────────── */
+
+.diferenciais {
+    background: var(--cinza-fundo);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.titulo-diferencial {
+/* faixa amarela decorativa no topo da seção */
+.diferenciais::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--amarelo), var(--amarelo-claro), var(--roxo-claro));
+}
+
+/* orbe amarelo decorativo de fundo */
+.diferenciais::after {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 197, 0, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── HEADER ───────────────────────────────────────────────────────── */
+
+.sec-header {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 3.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.sec-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--roxo-medio);
+    background: var(--roxo-bg);
+    border: 1px solid rgba(107, 43, 173, 0.15);
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+}
+
+.sec-title {
     font-family: 'Sora', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 900;
     line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--texto-principal);
+    letter-spacing: -0.025em;
+    color: var(--texto);
+    margin-bottom: 0.9rem;
 }
 
-p {
+.sec-title span {
+    color: var(--roxo);
+    position: relative;
+}
+
+/* sublinhado amarelo no span do título */
+.sec-title span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--amarelo), var(--amarelo-claro));
+}
+
+.sec-sub {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.75;
-    color: var(--texto-secundario);
+    color: var(--texto-suave);
 }
 
-.card-principal-diferencial {
+/* ── GRID ─────────────────────────────────────────────────────────── */
+
+.dif-grid {
+    max-width: 1100px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    position: relative;
+    z-index: 1;
 }
 
-.card-diferencial {
+/* ── CARD ─────────────────────────────────────────────────────────── */
+
+.dif-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    padding: 1.75rem;
+    box-shadow: var(--sombra);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    padding: 2rem;
-    background-color: var(--card-fundo);
-    border: 1px solid var(--card-borda);
-    border-radius: 1.25rem;
-    color: var(--texto-principal);
+    align-items: center;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
 }
 
-.card-diferencial:hover {
-    background-color: #f4e4052b;
-    border: 1px solid var(--amarelo-escuro);
+/* barra gradiente roxa→amarela no topo — sempre visível */
+.dif-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--roxo), var(--amarelo));
+}
+
+/* ponto amarelo decorativo no canto inferior direito */
+.dif-card::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245, 197, 0, 0.13) 0%, transparent 70%);
+    transition: opacity 0.25s ease;
+    opacity: 0;
+}
+
+.dif-card:hover {
     transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+    border-color: rgba(107, 43, 173, 0.22);
 }
 
-.card-titulo {
+.dif-card:hover::after {
+    opacity: 1;
+}
+
+/* ── ÍCONE ────────────────────────────────────────────────────────── */
+
+.dif-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    border: 1px solid rgba(107, 43, 173, 0.15);
+    background: var(--roxo-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* ponto amarelo no canto superior direito do ícone */
+.dif-icon::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--amarelo);
+    border: 2px solid var(--cinza-fundo);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dif-card:hover .dif-icon {
+    background: rgba(107, 43, 173, 0.1);
+    border-color: rgba(107, 43, 173, 0.28);
+    box-shadow: 0 0 0 4px rgba(245, 197, 0, 0.12);
+}
+
+.dif-card:hover .dif-icon::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.dif-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--roxo-medio);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.25s ease;
+}
+
+.dif-card:hover .dif-icon svg {
+    stroke: var(--roxo);
+}
+
+/* ── TEXTOS ───────────────────────────────────────────────────────── */
+
+.dif-title {
     font-family: 'Sora', sans-serif;
-    font-size: 1.2rem;
+    font-size: 0.92rem;
     font-weight: 800;
-    color: var(--texto-principal);
+    color: var(--texto);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+/* traço amarelo embaixo do título do card */
+.dif-title::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--amarelo);
+    margin: 0.45rem auto 0;
+    transition: width 0.25s ease;
+}
+
+.dif-card:hover .dif-title::after {
+    width: 40px;
+}
+
+.dif-desc {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--texto-suave);
     margin: 0;
 }
 
-.card-icon {
-    font-size: 1.6rem;
-    background: linear-gradient(135deg, rgba(91, 30, 153, 0.35), rgba(160, 96, 224, 0.2));
-    border: 1px solid rgba(160, 96, 224, 0.25);
-    width: 52px;
-    height: 52px;
-    border-radius: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.25rem;
+/* ── RESPONSIVO ───────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .dif-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.card-text {
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--texto-secundario);
+@media (max-width: 560px) {
+    .dif-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem;
+    }
+
+    .dif-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .dif-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+    }
+
+    .dif-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .diferenciais {
+        padding: 4rem 1.25rem;
+    }
 }

@@ -1,164 +1,178 @@
-.produto-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--roxo-fundo-cards);
-    padding: 6rem 2rem;
-    gap: 3rem;
-    width: 100%;
-}
-
-.produto-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* ── SEÇÃO HEADER HELPER ─────────────────────────────────── */
+.sec-header {
     text-align: center;
-    gap: 1rem;
-    max-width: 600px;
+    max-width: 620px;
+    margin: 0 auto 3.5rem
 }
 
-.produto-titulo {
+.sec-label {
+    display: inline-block;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--roxo-medio);
+    background: var(--roxo-bg);
+    border: 1px solid rgba(107, 43, 173, .15);
+    padding: .3rem .9rem;
+    border-radius: 100px;
+    margin-bottom: 1rem
+}
+
+.sec-title {
     font-family: 'Sora', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 900;
     line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--texto-principal);
+    letter-spacing: -.025em;
+    color: var(--texto);
+    margin-bottom: .9rem
 }
 
-.produto-titulo span {
-    color: var(--amarelo);
+.sec-title span {
+    color: var(--roxo)
 }
 
-.produto-subtitulo {
+.sec-sub {
     font-size: 1rem;
-    font-weight: 400;
     line-height: 1.75;
-    color: var(--texto-secundario);
+    color: var(--texto-suave)
 }
 
-.produto-grid {
+/* ── PRODUTOS ────────────────────────────────────────────── */
+.produtos {
+    background: var(--branco);
+    padding: 6rem 2rem
+}
+
+.produtos-grid {
+    max-width: 1100px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    width: 100%;
-    max-width: 1100px;
+    gap: 1.5rem
 }
 
-
-.card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 2rem;
-    background-color: var(--card-fundo);
-    border: 1px solid var(--card-borda);
-    border-radius: 1.25rem;
-    color: var(--texto-principal);
+.prod-card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    padding: 2.25rem;
+    box-shadow: var(--sombra);
     position: relative;
     overflow: hidden;
-    transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    transition: .25s
 }
 
-/* barra colorida no topo do card */
-.card::before {
+.prod-card::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--roxo-principal), var(--amarelo));
+    background: linear-gradient(90deg, var(--roxo), var(--amarelo))
 }
 
-.card:hover {
-    border-color: rgba(160, 96, 224, 0.5);
-    transform: translateY(-5px);
-    background: rgba(91, 30, 153, 0.1);
+.prod-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+    border-color: rgba(107, 43, 173, .2)
 }
 
-
-.card-icon {
-    font-size: 1.6rem;
-    background: linear-gradient(135deg, rgba(91, 30, 153, 0.35), rgba(160, 96, 224, 0.2));
-    border: 1px solid rgba(160, 96, 224, 0.25);
-    width: 52px;
-    height: 52px;
-    border-radius: 13px;
+.prod-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--roxo-bg);
+    border: 1px solid rgba(107, 43, 173, .12);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.25rem;
+    margin-bottom: 1.25rem
 }
 
-.card-categoria {
-    font-size: 0.7rem;
+.prod-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--roxo-medio);
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.prod-cat {
+    font-size: .68rem;
     font-weight: 800;
-    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--amarelo);
+    letter-spacing: .1em;
+    color: var(--roxo-medio);
+    margin-bottom: .4rem
 }
 
-.card-titulo {
+.prod-name {
     font-family: 'Sora', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    color: var(--texto-principal);
-    margin: 0;
+    color: var(--texto);
+    margin-bottom: 1rem
 }
 
-
-.card-itens {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+.prod-items {
+    list-style: none
 }
 
-.card-item {
+.prod-items li {
+    font-size: .88rem;
+    color: var(--texto-suave);
+    padding: .45rem 0;
+    border-bottom: 1px solid var(--borda);
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.9rem;
-    color: var(--texto-secundario);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    gap: .6rem
 }
 
-.card-item:last-child {
-    border-bottom: none;
+.prod-items li:last-child {
+    border-bottom: none
 }
 
-.card-item-seta {
-    color: var(--laranja);
-    font-weight: 900;
-    font-size: 1.1rem;
-    line-height: 1;
+.prod-items li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--roxo-claro);
+    flex-shrink: 0
 }
 
-
-
-.produto-alerta {
-    font-size: 0.85rem;
-    color: var(--texto-secundario);
-    background: rgba(245, 197, 0, 0.07);
-    border: 1px solid rgba(245, 197, 0, 0.2);
-    padding: 0.9rem 1.5rem;
-    border-radius: 10px;
-    max-width: 1100px;
-    width: 100%;
-    text-align: center;
+.prod-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: 1.25rem;
+    font-family: 'Sora', sans-serif;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--roxo);
+    border: 1.5px solid var(--borda);
+    padding: .55rem 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+    text-decoration: none;
+    background: transparent
 }
 
+.prod-btn:hover {
+    background: var(--roxo-bg);
+    border-color: rgba(107, 43, 173, .25)
+}
 
-
-@media (max-width: 900px) {
-    .produto-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .produto-container {
-        padding: 4rem 1.5rem;
-    }
+.prod-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.2
 }

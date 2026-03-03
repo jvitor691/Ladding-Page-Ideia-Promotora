@@ -1,0 +1,125 @@
+/* ── BANNER ───────────────────────────────────────────────────────── */
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: #fff;
+    border-top: 2px solid var(--roxo-claro);
+    box-shadow: 0 -8px 40px rgba(74, 21, 128, 0.15);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+}
+
+/* linha amarela decorativa acima da borda roxa */
+.cookie-banner::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--amarelo), var(--amarelo-claro), var(--roxo-claro));
+}
+
+.cookie-banner.oculto {
+    transform: translateY(110%);
+}
+
+/* ── TEXTO ────────────────────────────────────────────────────────── */
+
+.cookie-texto {
+    font-size: 0.82rem;
+    color: var(--texto-medio);
+    line-height: 1.65;
+    max-width: 780px;
+}
+
+.cookie-texto strong {
+    color: var(--roxo);
+    font-weight: 700;
+}
+
+.cookie-texto a {
+    color: var(--roxo-medio);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.cookie-texto a:hover {
+    color: var(--roxo);
+}
+
+/* ── BOTÕES ───────────────────────────────────────────────────────── */
+
+.cookie-btns {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.cookie-aceitar {
+    background: linear-gradient(135deg, var(--roxo), var(--roxo-medio));
+    color: #fff;
+    border: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cookie-aceitar:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.cookie-recusar {
+    background: transparent;
+    color: var(--texto-suave);
+    border: 1.5px solid var(--borda);
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    font-family: 'Sora', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.cookie-recusar:hover {
+    border-color: var(--roxo-claro);
+    color: var(--roxo);
+}
+
+/* ── RESPONSIVO ───────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem 1.25rem 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .cookie-btns {
+        width: 100%;
+    }
+
+    .cookie-aceitar,
+    .cookie-recusar {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+    }
+}

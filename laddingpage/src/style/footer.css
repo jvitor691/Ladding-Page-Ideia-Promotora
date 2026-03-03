@@ -1,0 +1,266 @@
+/* ── FOOTER ───────────────────────────────────────────────────────── */
+
+footer {
+    background: linear-gradient(135deg, var(--roxo) 0%, #2D0A5C 100%);
+    color: #fff;
+    padding: 5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* brilho amarelo canto superior direito */
+footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 10%, rgba(245, 197, 0, 0.1) 0, transparent 40%);
+    pointer-events: none;
+}
+
+/* faixa amarela no topo */
+footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--amarelo), var(--amarelo-claro), var(--roxo-claro));
+}
+
+/* ── INNER ────────────────────────────────────────────────────────── */
+
+.footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── TOP GRID ─────────────────────────────────────────────────────── */
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── COLUNA MARCA ─────────────────────────────────────────────────── */
+
+.footer-brand .logo {
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+.footer-brand p {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.25rem;
+}
+
+.footer-info {
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 2.1;
+    padding: 1rem 1.1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 2px solid rgba(245, 197, 0, 0.4);
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 0;
+}
+
+.footer-info strong {
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 600;
+}
+
+/* ── REDES SOCIAIS ────────────────────────────────────────────────── */
+
+.socials {
+    display: flex;
+    gap: 0.65rem;
+    margin-top: 1.25rem;
+}
+
+.socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.socials a:hover {
+    background: rgba(245, 197, 0, 0.18);
+    border-color: rgba(245, 197, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.socials svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.8;
+}
+
+/* ── COLUNAS LINKS ────────────────────────────────────────────────── */
+
+.footer-col h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amarelo-claro);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(245, 197, 0, 0.2);
+}
+
+.footer-col a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.84rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.footer-col a::before {
+    content: '›';
+    font-size: 1rem;
+    color: var(--amarelo);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: #fff;
+    gap: 0.6rem;
+}
+
+.footer-col a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── COLUNA ENDEREÇO ──────────────────────────────────────────────── */
+
+.footer-col address {
+    font-style: normal;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.95;
+    margin-bottom: 1.25rem;
+}
+
+.footer-col address strong {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+}
+
+/* botão WhatsApp dentro do footer */
+.footer-whatsapp {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(245, 197, 0, 0.12) !important;
+    border: 1px solid rgba(245, 197, 0, 0.3) !important;
+    color: var(--amarelo-claro) !important;
+    font-family: 'Sora', sans-serif;
+    font-size: 0.78rem !important;
+    font-weight: 700;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+    margin-top: 0.5rem;
+}
+
+.footer-whatsapp:hover {
+    background: rgba(245, 197, 0, 0.22) !important;
+    transform: translateY(-1px) !important;
+    gap: 0.5rem !important;
+}
+
+.footer-whatsapp::before {
+    display: none !important;
+}
+
+.footer-whatsapp svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--amarelo-claro);
+    flex-shrink: 0;
+}
+
+/* ── RODAPÉ LEGAL ─────────────────────────────────────────────────── */
+
+.footer-bottom {
+    padding-top: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.footer-bottom-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(245, 197, 0, 0.1);
+    border: 1px solid rgba(245, 197, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.15rem;
+}
+
+.footer-bottom-icon svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--amarelo);
+}
+
+.footer-bottom p {
+    font-size: 0.74rem;
+    color: rgba(255, 255, 255, 0.38);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* ── RESPONSIVO ───────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    footer {
+        padding: 3.5rem 1.25rem 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
