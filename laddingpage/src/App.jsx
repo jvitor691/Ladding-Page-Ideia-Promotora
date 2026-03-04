@@ -1,36 +1,20 @@
 import { useState } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Trustbar from './components/Trustbar'
-import Produtos from './components/Produtos'
-import Diferencial from './components/Diferencial'
-import Parceiros from './components/Parceiros'
-import OndeEstamos from './components/OndeEstamos'
-import Institucional from './components/Institucional'
-import Cookie from './components/Cookie'
-import Footer from './components/Footer'
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import Home from './pages/Home'
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Navbar />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-      <main>
-        <Hero />
-        <Trustbar />
-        <Produtos />
-        <Diferencial />
-        <OndeEstamos />
-        <Institucional />
-        <Parceiros />
-      </main>
-
-      <Footer />
-      <Cookie />
-    </>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

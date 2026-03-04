@@ -7,7 +7,7 @@ const NAV_ITEMS = [
     { href: "#onde-estamos", label: "Onde Estamos" },
     { href: "#institucional", label: "Institucional" },
     { href: "#parceiros", label: "Bancos Parceiros" },
-    { href: "#bancos", label: "SAC Bancos" },
+    { href: "#footer", label: "SAC Bancos" },
 ];
 
 const Navbar = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <div className="nav-inner">
 
                     {/* Logo */}
-                    <a href="#" className="logo">
+                    <a href="#hero" className="logo">
                         <img className="logo-img" src={logo} alt="Ideia Promotora" />
                     </a>
 
@@ -60,7 +60,7 @@ const Navbar = () => {
 
                     {/* CTA desktop */}
                     <div className="nav-ctas">
-                        <a href="#parceiros" className="btn-primary">Seja Parceiro</a>
+                        <a href="https://wa.me/5585992786663" className="btn-primary">Fale conosco</a>
                     </div>
 
                     {/* Hambúrguer */}
@@ -108,20 +108,11 @@ const Navbar = () => {
 
                 <div className="menu-mobile-footer">
                     <a
-                        href="#parceiros"
+                        href="https://wa.me/55852139-5599"
                         className="btn-primary btn-primary-full"
                         onClick={fecharMenu}
                     >
                         Seja nosso Parceiro
-                    </a>
-                    <a
-                        href="https://wa.me/5585920059086"
-                        className="btn-outline btn-outline-full"
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={fecharMenu}
-                    >
-                        Fale pelo WhatsApp
                     </a>
                 </div>
             </div>

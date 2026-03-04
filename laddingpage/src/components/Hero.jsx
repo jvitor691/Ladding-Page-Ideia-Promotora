@@ -3,7 +3,7 @@ import fotoMulher from "../assets/mulher-notebook.png";
 
 const Hero = () => {
     return (
-        <section className="hero">
+        <section className="hero" id="hero">
             <div className="hero-inner">
 
                 {/* ── TEXTO ── */}
@@ -23,7 +23,7 @@ const Hero = () => {
                     </p>
 
                     <div className="hero-btns">
-                        <a href="#parceiros" className="btn-hero-amarelo">
+                        <a href="https://wa.me/5585992786663" className="btn-hero-amarelo">
                             <svg
                                 width="18" height="18"
                                 viewBox="0 0 24 24"
@@ -40,14 +40,6 @@ const Hero = () => {
                             Seja nosso Parceiro
                         </a>
 
-                        <a
-                            href="https://wa.me/5585920059086"
-                            className="btn-hero-ghost"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Fale pelo WhatsApp
-                        </a>
                     </div>
 
                     {/* Stats rápidos */}

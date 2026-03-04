@@ -6,7 +6,7 @@ const LINKS_RAPIDOS = [
     { href: "#diferenciais", label: "Diferenciais" },
     { href: "#onde-estamos", label: "Onde Estamos" },
     { href: "#parceiros", label: "SAC Bancos" },
-    { href: "https://wa.me/5585920059086", label: "Fale Conosco", externo: true },
+    { href: "https://wa.me/5585992786663", label: "Fale Conosco", externo: true },
 ];
 
 const LINKS_LEGAIS = [
@@ -104,7 +104,7 @@ const Footer = () => {
                         </address>
 
                         <a
-                            href="https://wa.me/5585920059086"
+                            href="https://wa.me/5585992786663"
                             className="footer-whatsapp"
                             target="_blank"
                             rel="noreferrer"

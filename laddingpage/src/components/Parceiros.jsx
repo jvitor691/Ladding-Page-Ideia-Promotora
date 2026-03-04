@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "../style/parceiros.css";
 
-// ── IMPORTS DE LOGO (ESM — compatível com Vite) ───────────────────
+
 import logoC6 from "../assets/c6-bank.png";
 import logoFacta from "../assets/banco-facta.webp";
 import logoDaycoval from "../assets/daycoval.jpg";
@@ -75,7 +75,7 @@ const BANKS = [
     { name: "Qualibanking", logo: logoQuali, sac: "0800 888 9079", ouvidoria: "0800 888 9079" },
 ];
 
-// ── FALLBACK ──────────────────────────────────────────────────────
+
 const LogoFallback = () => (
     <svg viewBox="0 0 28 28" fill="none" stroke="currentColor"
         strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"
@@ -84,7 +84,7 @@ const LogoFallback = () => (
     </svg>
 );
 
-// ── LOGO BOX ──────────────────────────────────────────────────────
+
 const BancoLogoBox = ({ logo, name }) => {
     const [falhou, setFalhou] = useState(false);
     return (
@@ -103,7 +103,7 @@ const BancoLogoBox = ({ logo, name }) => {
     );
 };
 
-// ── CARD ──────────────────────────────────────────────────────────
+
 const BancoCard = ({ banco }) => (
     <div className="banco-card">
         <BancoLogoBox logo={banco.logo} name={banco.name} />
@@ -116,7 +116,7 @@ const BancoCard = ({ banco }) => (
     </div>
 );
 
-// ── SEÇÃO ─────────────────────────────────────────────────────────
+
 const Parceiros = () => {
     const trackRef = useRef(null);
 
