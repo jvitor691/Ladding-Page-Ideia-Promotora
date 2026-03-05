@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../style/navbar.css";
-import logo from "../assets/Logo Ideia.png";
+import logo from "../assets/logo-ideia.png";
 
 const NAV_ITEMS = [
     { href: "#produtos", label: "Produtos" },

@@ -306,6 +306,11 @@
         display: flex;
     }
 
+    .logo-img {
+        height: 32px;
+        background-color: var(--roxo);
+    }
+
     .nav-inner {
         padding: 0 1.25rem;
     }
