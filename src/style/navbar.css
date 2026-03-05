@@ -311,6 +311,10 @@
         background-color: var(--roxo-claro);
     }
 
+    .logo-img {
+        display: none;
+    }
+
     .nav-inner {
         padding: 0 1.25rem;
     }
