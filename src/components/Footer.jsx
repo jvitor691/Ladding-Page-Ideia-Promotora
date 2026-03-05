@@ -1,5 +1,5 @@
 import "../style/footer.css";
-import logo from "../assets/Logo ideia.png";
+import logo from "../assets/Logo Ideia.png";
 
 const LINKS_RAPIDOS = [
     { href: "#produtos", label: "Produtos" },
