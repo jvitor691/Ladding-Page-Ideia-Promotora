@@ -17,7 +17,7 @@ const PRODUCTS = [
         icon: "💡",
         category: "Linhas de Crédito",
         title: "Crédito",
-        items: ["Crédito Pessoal", "Saque FGTS", "Crédito na Conta de Energia"],
+        items: ["Crédito Pessoal", "Saque FGTS", "Crédito na Conta de Energia", "Refinanciamento de veículos"],
     },
 ];
 

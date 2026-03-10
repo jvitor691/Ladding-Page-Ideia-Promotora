@@ -1,14 +1,13 @@
 import "../style/ondeestamos.css";
 
 const ESTADOS = [
-    { uf: "CE", nome: "Ceará", cidades: "Fortaleza · Sede principal", sede: true },
-    { uf: "PE", nome: "Pernambuco", cidades: "Recife · Grande Recife", sede: false },
-    { uf: "BA", nome: "Bahia", cidades: "Salvador · Interior", sede: false },
-    { uf: "RN", nome: "Rio G. do Norte", cidades: "Natal · Mossoró", sede: false },
-    { uf: "MA", nome: "Maranhão", cidades: "São Luís · Imperatriz", sede: false },
-    { uf: "PI", nome: "Piauí", cidades: "Teresina · Interior", sede: false },
-    { uf: "PB", nome: "Paraíba", cidades: "João Pessoa · Campina Grande", sede: false },
-    { uf: "AL", nome: "Alagoas", cidades: "Maceió · Interior", sede: false },
+    { uf: "CE", nome: "Ceará", descricao: "Fortaleza · Matriz", tipo: "matriz" },
+    { uf: "MA", nome: "Maranhão", descricao: "São Luís · Filial", tipo: "filial" },
+    { uf: "PB", nome: "Paraíba", descricao: "Atuação comercial no estado", tipo: "comercial" },
+    { uf: "RN", nome: "Rio Grande do Norte", descricao: "Atuação comercial no estado", tipo: "comercial" },
+    { uf: "PI", nome: "Piauí", descricao: "Atuação comercial no estado", tipo: "comercial" },
+    { uf: "PA", nome: "Pará", descricao: "Atuação comercial no estado", tipo: "comercial" },
+    { uf: "AP", nome: "Amapá", descricao: "Atuação comercial no estado", tipo: "comercial" },
 ];
 
 const IconePin = () => (
@@ -28,20 +27,22 @@ const IconePin = () => (
 const OndeEstamos = () => {
     return (
         <section className="onde-estamos" id="onde-estamos">
-
             <div className="sec-header">
                 <span className="sec-label">Presença Regional</span>
-                <h2 className="sec-title">Onde <span>estamos</span></h2>
+                <h2 className="sec-title">
+                    Onde <span>estamos</span>
+                </h2>
                 <p className="sec-sub">
-                    A Ideia Promotora está presente em 8 estados do Norte e Nordeste,
-                    levando as melhores oportunidades do crédito consignado para todo o Brasil.
+                    Nossa operação conta com matriz em Fortaleza, filial no Maranhão
+                    e atuação comercial em outros estados, com gerentes acompanhando
+                    parceiros em toda a região.
                 </p>
             </div>
 
             <div className="estados-grid">
                 {ESTADOS.map((estado) => (
                     <div
-                        className={`estado-card ${estado.sede ? "estado-card--sede" : ""}`}
+                        className={`estado-card estado-card--${estado.tipo}`}
                         key={estado.uf}
                     >
                         <div className="estado-icon">
@@ -49,17 +50,22 @@ const OndeEstamos = () => {
                         </div>
 
                         <div className="estado-info">
-                            <div className="estado-uf">{estado.uf}</div>
+                            <div className="estado-top">
+                                <div className="estado-uf">{estado.uf}</div>
+
+                                <span className={`estado-tag estado-tag--${estado.tipo}`}>
+                                    {estado.tipo === "matriz" && "Matriz"}
+                                    {estado.tipo === "filial" && "Filial"}
+                                    {estado.tipo === "comercial" && "Comercial"}
+                                </span>
+                            </div>
+
                             <div className="estado-nome">{estado.nome}</div>
-                            <div className="estado-cidades">{estado.cidades}</div>
-                            {estado.sede && (
-                                <span className="estado-sede-tag">Sede</span>
-                            )}
+                            <div className="estado-cidades">{estado.descricao}</div>
                         </div>
                     </div>
                 ))}
             </div>
-
         </section>
     );
 };

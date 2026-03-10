@@ -9,7 +9,7 @@
     background: var(--roxo-claro);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--borda);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
@@ -87,12 +87,12 @@
 }
 
 .btn-outline {
-    background: transparent;
-    border: 1.5px solid var(--borda);
-    color: var(--texto-medio);
+    background: var(--amarelo);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    color: var(--roxo-claro);
     padding: 0.55rem 1.25rem;
     border-radius: 8px;
-    font-family: 'Sora', sans-serif;
+    font-family: "Sora", sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
@@ -101,11 +101,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 
 .btn-outline:hover {
-    border-color: var(--roxo-claro);
-    color: var(--roxo);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 32px rgba(245, 197, 0, .5);
 }
 
 .btn-primary {
@@ -114,7 +115,7 @@
     padding: 0.55rem 1.35rem;
     border-radius: 8px;
     border: none;
-    font-family: 'Sora', sans-serif;
+    font-family: "Sora", sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
@@ -124,6 +125,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -171,7 +173,6 @@
     transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
 }
 
-/* animação X */
 .hamburger.aberto span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -269,7 +270,7 @@
     display: flex;
     align-items: center;
     padding: 0.9rem 1.75rem;
-    font-family: 'Sora', sans-serif;
+    font-family: "Sora", sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--texto);
@@ -293,6 +294,17 @@
     flex-shrink: 0;
 }
 
+.menu-mobile-footer .btn-outline {
+    border-color: var(--roxo-claro);
+    color: var(--roxo);
+}
+
+.menu-mobile-footer .btn-outline:hover {
+    background: var(--roxo-bg);
+    border-color: var(--roxo-claro);
+    color: var(--roxo);
+}
+
 /* ── RESPONSIVO ───────────────────────────────────────────────────── */
 
 @media (max-width: 960px) {
@@ -307,7 +319,7 @@
     }
 
     .menu-mobile-header {
-        height: 32px;
+        height: 68px;
         background-color: var(--roxo-claro);
     }
 

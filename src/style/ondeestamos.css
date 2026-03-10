@@ -1,5 +1,3 @@
-/* ── SEÇÃO ────────────────────────────────────────────────────────── */
-
 .onde-estamos {
     background: var(--cinza-fundo);
     padding: 6rem 2rem;
@@ -7,7 +5,6 @@
     overflow: hidden;
 }
 
-/* orbe amarelo decorativo */
 .onde-estamos::before {
     content: '';
     position: absolute;
@@ -20,7 +17,6 @@
     pointer-events: none;
 }
 
-/* faixa amarela no topo */
 .onde-estamos::after {
     content: '';
     position: absolute;
@@ -31,8 +27,6 @@
     background: linear-gradient(90deg, var(--amarelo), var(--amarelo-claro), var(--roxo-claro));
 }
 
-/* ── GRID ─────────────────────────────────────────────────────────── */
-
 .estados-grid {
     max-width: 1100px;
     margin: 0 auto;
@@ -42,8 +36,6 @@
     position: relative;
     z-index: 1;
 }
-
-/* ── CARD ─────────────────────────────────────────────────────────── */
 
 .estado-card {
     background: var(--branco);
@@ -59,7 +51,6 @@
     overflow: hidden;
 }
 
-/* barra lateral amarela — aparece no hover */
 .estado-card::before {
     content: '';
     position: absolute;
@@ -67,14 +58,12 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(180deg, var(--amarelo), var(--roxo-claro));
     opacity: 0;
     transition: opacity 0.25s ease;
     border-radius: 16px 0 0 16px;
 }
 
 .estado-card:hover {
-    border-color: rgba(107, 43, 173, 0.25);
     transform: translateY(-4px);
     box-shadow: var(--sombra-hover);
 }
@@ -83,23 +72,42 @@
     opacity: 1;
 }
 
-/* card da sede — destaque permanente */
-.estado-card--sede {
+.estado-card--matriz {
     border-color: rgba(245, 197, 0, 0.45);
     background: linear-gradient(135deg, #fffdf0 0%, var(--branco) 60%);
 }
 
-.estado-card--sede::before {
+.estado-card--matriz::before {
     opacity: 1;
     background: linear-gradient(180deg, var(--amarelo), var(--amarelo-claro));
 }
 
-.estado-card--sede:hover {
+.estado-card--matriz:hover {
     border-color: rgba(245, 197, 0, 0.7);
     box-shadow: 0 8px 32px rgba(245, 197, 0, 0.18);
 }
 
-/* ── ÍCONE ────────────────────────────────────────────────────────── */
+.estado-card--filial {
+    border-color: rgba(107, 43, 173, 0.28);
+    background: linear-gradient(135deg, rgba(245, 240, 252, 0.8) 0%, var(--branco) 65%);
+}
+
+.estado-card--filial::before {
+    opacity: 1;
+    background: linear-gradient(180deg, var(--roxo-medio), var(--roxo-claro));
+}
+
+.estado-card--filial:hover {
+    border-color: rgba(107, 43, 173, 0.45);
+}
+
+.estado-card--comercial:hover {
+    border-color: rgba(107, 43, 173, 0.25);
+}
+
+.estado-card--comercial::before {
+    background: linear-gradient(180deg, var(--amarelo), var(--roxo-claro));
+}
 
 .estado-icon {
     width: 42px;
@@ -119,10 +127,14 @@
     border-color: rgba(107, 43, 173, 0.25);
 }
 
-/* ícone da sede fica amarelo */
-.estado-card--sede .estado-icon {
+.estado-card--matriz .estado-icon {
     background: rgba(245, 197, 0, 0.12);
     border-color: rgba(245, 197, 0, 0.4);
+}
+
+.estado-card--filial .estado-icon {
+    background: rgba(107, 43, 173, 0.1);
+    border-color: rgba(107, 43, 173, 0.25);
 }
 
 .estado-icon svg {
@@ -134,20 +146,32 @@
     transition: stroke 0.25s ease;
 }
 
-.estado-card--sede .estado-icon svg {
+.estado-card--matriz .estado-icon svg {
     stroke: #9A7800;
+}
+
+.estado-card--filial .estado-icon svg {
+    stroke: var(--roxo);
 }
 
 .estado-card:hover .estado-icon svg {
     stroke: var(--roxo);
 }
 
-/* ── TEXTOS ───────────────────────────────────────────────────────── */
-
 .estado-info {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    gap: 0.15rem;
+    min-width: 0;
+    width: 100%;
+}
+
+.estado-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-bottom: 0.2rem;
 }
 
 .estado-uf {
@@ -157,11 +181,14 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--roxo-medio);
-    margin-bottom: 0.15rem;
 }
 
-.estado-card--sede .estado-uf {
+.estado-card--matriz .estado-uf {
     color: #9A7800;
+}
+
+.estado-card--filial .estado-uf {
+    color: var(--roxo);
 }
 
 .estado-nome {
@@ -173,30 +200,44 @@
 }
 
 .estado-cidades {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     color: var(--texto-suave);
     line-height: 1.6;
     margin-top: 0.25rem;
 }
 
-/* tag "Sede" amarela */
-.estado-sede-tag {
+.estado-tag {
     display: inline-flex;
     align-items: center;
-    margin-top: 0.5rem;
+    justify-content: center;
     font-size: 0.62rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    width: fit-content;
+    flex-shrink: 0;
+}
+
+.estado-tag--matriz {
     background: rgba(245, 197, 0, 0.15);
     border: 1px solid rgba(245, 197, 0, 0.45);
     color: #8A6F00;
-    padding: 0.18rem 0.55rem;
-    border-radius: 5px;
-    width: fit-content;
 }
 
-/* ── RESPONSIVO ───────────────────────────────────────────────────── */
+.estado-tag--filial {
+    background: rgba(107, 43, 173, 0.12);
+    border: 1px solid rgba(107, 43, 173, 0.24);
+    color: var(--roxo);
+}
+
+.estado-tag--comercial {
+    background: rgba(74, 59, 107, 0.08);
+    border: 1px solid rgba(124, 110, 154, 0.2);
+    color: var(--texto-medio);
+}
 
 @media (max-width: 900px) {
     .estados-grid {
@@ -206,7 +247,7 @@
 
 @media (max-width: 480px) {
     .estados-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 0.85rem;
     }
 
@@ -222,5 +263,10 @@
 
     .onde-estamos {
         padding: 4rem 1.25rem;
+    }
+
+    .estado-top {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }

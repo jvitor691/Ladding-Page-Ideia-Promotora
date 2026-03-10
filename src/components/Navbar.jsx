@@ -26,13 +26,17 @@ const Navbar = () => {
         } else {
             document.body.style.overflow = "";
         }
-        return () => { document.body.style.overflow = ""; };
+
+        return () => {
+            document.body.style.overflow = "";
+        };
     }, [menuAberto]);
 
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 960) setMenuAberto(false);
         };
+
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
@@ -43,13 +47,10 @@ const Navbar = () => {
         <>
             <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
                 <div className="nav-inner">
-
-                    {/* Logo */}
-                    <a href="#hero" className="logo">
+                    <a href="#hero" className="logo" aria-label="Ir para o início">
                         <img className="logo-img" src={logo} alt="Ideia Promotora" />
                     </a>
 
-                    {/* Links desktop */}
                     <ul className="nav-links">
                         {NAV_ITEMS.map((item) => (
                             <li key={item.href}>
@@ -58,38 +59,62 @@ const Navbar = () => {
                         ))}
                     </ul>
 
-                    {/* CTA desktop */}
                     <div className="nav-ctas">
-                        <a href="https://wa.me/5585992786663" className="btn-primary">Fale conosco</a>
+                        <a
+                            href="https://ideia.multsistema.com.br/"
+                            className="btn-outline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Área do Parceiro
+                        </a>
+
+                        <a
+                            href="https://wa.me/5585992786663"
+                            className="btn-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Fale conosco
+                        </a>
                     </div>
 
-                    {/* Hambúrguer */}
                     <button
                         className={`hamburger ${menuAberto ? "aberto" : ""}`}
                         onClick={() => setMenuAberto(!menuAberto)}
                         aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
                         aria-expanded={menuAberto}
+                        type="button"
                     >
                         <span />
                         <span />
                         <span />
                     </button>
-
                 </div>
             </nav>
 
-            {/* Overlay escuro */}
             <div
                 className={`menu-overlay ${menuAberto ? "visivel" : ""}`}
                 onClick={fecharMenu}
             />
 
-            {/* Drawer mobile */}
             <div className={`menu-mobile ${menuAberto ? "aberto" : ""}`}>
                 <div className="menu-mobile-header">
                     <img className="logo-img" src={logo} alt="Ideia Promotora" />
-                    <button className="menu-fechar" onClick={fecharMenu} aria-label="Fechar menu">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+
+                    <button
+                        className="menu-fechar"
+                        onClick={fecharMenu}
+                        aria-label="Fechar menu"
+                        type="button"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                        >
                             <line x1="18" y1="6" x2="6" y2="18" />
                             <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
@@ -108,11 +133,23 @@ const Navbar = () => {
 
                 <div className="menu-mobile-footer">
                     <a
-                        href="https://wa.me/55852139-5599"
-                        className="btn-primary btn-primary-full"
+                        href="https://ideia.multsistema.com.br/"
+                        className="btn-outline btn-outline-full"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={fecharMenu}
                     >
-                        Seja nosso Parceiro
+                        Área do Parceiro
+                    </a>
+
+                    <a
+                        href="https://wa.me/5585992786663"
+                        className="btn-primary btn-primary-full"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={fecharMenu}
+                    >
+                        Fale conosco
                     </a>
                 </div>
             </div>

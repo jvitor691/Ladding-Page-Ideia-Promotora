@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../style/cookie.css";
 
 const Cookie = () => {
     const [visivel, setVisivel] = useState(false);
 
-    // só exibe se ainda não houve consentimento
     useEffect(() => {
         try {
             const consentimento = localStorage.getItem("cookie_consent");
@@ -17,32 +17,32 @@ const Cookie = () => {
     const fecharCookie = (aceitar) => {
         try {
             localStorage.setItem("cookie_consent", aceitar ? "all" : "essential");
-        } catch {
-            // silencioso se localStorage indisponível
-        }
+        } catch { }
         setVisivel(false);
     };
 
+    if (!visivel) return null;
+
     return (
-        <div className={`cookie-banner ${visivel ? "" : "oculto"}`} role="dialog" aria-label="Aviso de cookies">
-            <div className="cookie-texto">
+        <div
+            className="cookie-banner"
+            role="dialog"
+            aria-label="Aviso de cookies"
+        >
+            <p className="cookie-texto">
                 <strong>🍪 Sua privacidade importa.</strong> Utilizamos cookies para
                 melhorar sua experiência, analisar o tráfego e personalizar conteúdo,
-                conforme nossa{" "}
-                <a href="#" target="_blank" rel="noreferrer">
-                    Política de Privacidade
-                </a>{" "}
-                e a{" "}
-                <strong>Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)</strong>.
-                Ao continuar navegando, você concorda com o uso de cookies essenciais.
-            </div>
+                conforme nossa <Link to="/politica-de-cookies">Política de Cookies</Link>{" "}
+                ,<Link to="/termos-de-uso">Termos de Uso</Link> e <Link to="/politica-de-privacidade">Política de Privacidade</Link>.
+                Em conformidade com a <strong>LGPD — Lei nº 13.709/2018</strong>.
+            </p>
 
             <div className="cookie-btns">
                 <button
                     className="cookie-recusar"
                     onClick={() => fecharCookie(false)}
                 >
-                    Somente essenciais
+                    Apenas essenciais
                 </button>
                 <button
                     className="cookie-aceitar"

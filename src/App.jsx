@@ -1,21 +1,24 @@
-import { useState } from 'react'
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Home from './pages/Home'
-
+import TermosUso from "./pages/Termos-e-Condicao-de-Uso";
+import PoliticaPrivacidade from "./pages/Politica-de-Privacidade";
+import PoliticaCookies from "./pages/Politica-de-Cookies";
+import CanalDenuncias from "./pages/Canal-de-Denuncia";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-
+        <Route path="/termos-de-uso" element={<TermosUso />} />
+        <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+        <Route path="/politica-de-cookies" element={<PoliticaCookies />} />
+        <Route path="/canal-de-Denuncias" element={<CanalDenuncias />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App;

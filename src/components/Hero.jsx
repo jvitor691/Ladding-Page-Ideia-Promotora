@@ -6,14 +6,14 @@ const Hero = () => {
         <section className="hero" id="hero">
             <div className="hero-inner">
 
-                {/* ── TEXTO ── */}
                 <div className="hero-text">
                     <div className="hero-badge">
                         Correspondente Bancário Autorizado · Bacen
                     </div>
 
                     <h1>
-                        Sua operação sempre<br />
+                        Sua operação sempre
+                        <br />
                         em <em>boas mãos</em>
                     </h1>
 
@@ -23,9 +23,15 @@ const Hero = () => {
                     </p>
 
                     <div className="hero-btns">
-                        <a href="https://wa.me/5585992786663" className="btn-hero-amarelo">
+                        <a
+                            href="https://wa.me/5585992786663"
+                            className="btn-hero-amarelo"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <svg
-                                width="18" height="18"
+                                width="18"
+                                height="18"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
@@ -40,20 +46,45 @@ const Hero = () => {
                             Seja nosso Parceiro
                         </a>
 
+                        <a
+                            href="https://ideia.multsistema.com.br/"
+                            className="btn-hero-ghost"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.1"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M3 11.5 12 4l9 7.5" />
+                                <path d="M5 10.5V20h14v-9.5" />
+                                <path d="M9.5 20v-5h5v5" />
+                            </svg>
+                            Área do Parceiro
+                        </a>
                     </div>
 
-                    {/* Stats rápidos */}
                     <div className="hero-stats">
                         <div className="hero-stat">
                             <span className="hero-stat-num">34</span>
                             <span className="hero-stat-label">Bancos parceiros</span>
                         </div>
+
                         <div className="hero-stat-divider" />
+
                         <div className="hero-stat">
-                            <span className="hero-stat-num">8</span>
+                            <span className="hero-stat-num">7</span>
                             <span className="hero-stat-label">Estados atendidos</span>
                         </div>
+
                         <div className="hero-stat-divider" />
+
                         <div className="hero-stat">
                             <span className="hero-stat-num">100%</span>
                             <span className="hero-stat-label">Autorizado Bacen</span>
@@ -61,11 +92,8 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* ── IMAGEM ── */}
                 <div className="hero-image">
                     <div className="hero-img-wrap">
-
-                        {/* Orbe decorativo */}
                         <div className="hero-orb" />
 
                         <img
